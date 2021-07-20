@@ -7,6 +7,12 @@ import jwt from 'jsonwebtoken'
 const Schema = mongoose.Schema;
 
 let userSchema = new Schema({
+    username: {
+        type: String,
+        unique: true,
+        required: true,
+        trim: true
+    },
     email: {
         type: String,
         unique: true,
@@ -45,6 +51,7 @@ userSchema.methods.generateJWT = function() {
 
     return jwt.sign({
         _id: this._id,
+        username: this.username,
         email: this.email,
         firstName: this.firstName,
         lastName: this.lastName,
