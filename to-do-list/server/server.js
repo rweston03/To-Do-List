@@ -6,9 +6,13 @@ const cookieParser = require('cookie-parser')
 const logger = require('morgan')
 const createError = require('http-errors')
 
-import { create } from 'domain'
-import { connect } from './config/db/connect'
-connect(process.env.MONGODB_URI)
+
+const ur = process.env.MONGODB_URI;
+mongoose.connect(uri, {useNewUrlParser: true, useCreateIndex: true});
+const connection = mongoose.connection;
+connection.once('open', () => {
+    console.log("MongoDB database connection established successfully.");
+})
 
 require('dotenv').config();
 
@@ -26,7 +30,7 @@ app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'client', 'public')))
 
 // Authentication
-import passport from 'passport'
+import { passport } from 'passport'
 import { strategy } from './config/passport'
 passport.use(strategy)
 app.use(passport.initialize())

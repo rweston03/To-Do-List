@@ -3,7 +3,7 @@ import { User } from '../models/user'
 
 // GET /api/:id
 export const allTodosAPI = (req, res, next) => {
-    ToDo.find({_userID: req.params.id}).exec((err, todos) => {
+    ToDo.findAll({username: req.app.locals.username}).exec((err, todos) => {
         if (err) {
             res.json({success: false, message: "Query failed"})
             res.end()
@@ -32,7 +32,7 @@ export const createTodoAPI = (req, res, next) => {
     let todo = new ToDo(req.body)
     todo.created = new Date()
     todo.updated = new Date()
-    todo.userID = new User(getCurrentUser(req))
+    todo.username = new User(getCurrentUser(req))
     todo.todo = req.body.todo
     todo.status = "pending"
     todo.save()
