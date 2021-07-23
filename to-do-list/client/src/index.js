@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import 'bootstrap';
 import App from './App';
-import App from './components/App'
 import SignInForm from './components/SignInForm';
 import Register from './components/Register';
 import SignOut from './components/SignOut';

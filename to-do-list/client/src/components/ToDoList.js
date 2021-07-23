@@ -14,9 +14,8 @@ export default function ToDoList() {
   let [authenticated, setAuthenticated] = useState(cookies.token !== undefined)
   const history = useHistory();
 
-  let adminDisplay = {}
 
-  if(!login_access)
+  if(!authenticated)
   {
     loginDisplay = {
       display: "none"
