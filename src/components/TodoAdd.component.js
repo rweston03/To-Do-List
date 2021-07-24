@@ -36,7 +36,7 @@ export default class TodoAdd extends Component {
 
         console.log(todo);
 
-        axios.post('https://rw-todo-list.herokuapp.com/todos/add', todo)
+        axios.post('/api/todos/add', todo)
             .then(res => console.log(res.data));
         
         window.location = '/';
