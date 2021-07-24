@@ -16,7 +16,7 @@ export default class TodoEdit extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:5000/todos/'+this.props.match.params.id)
+        axios.get('https://rw-todo-list.herokuapp.com/todos/'+this.props.match.params.id)
             .then(response => {
                 this.setState({
                     todo: response.data.todo,
@@ -50,7 +50,7 @@ export default class TodoEdit extends Component {
 
         console.log(todo);
 
-        axios.post('http://localhost:5000/todos/edit/'+this.props.match.params.id, todo)
+        axios.post('https://rw-todo-list.herokuapp.com/todos/edit/'+this.props.match.params.id, todo)
             .then(res => console.log(res.data));
         
         window.location = '/';
