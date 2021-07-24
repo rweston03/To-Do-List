@@ -11,7 +11,7 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-const uri = process.env.MONGO_URI || 'mongodb+srv://dbAdmin:SEHiDLVqftwPo4ai@cluster0.qg8rr.mongodb.net/To-Do-List?retryWrites=true&w=majority';
+const uri = process.env.MONGODB_URI || 'mongodb+srv://dbAdmin:SEHiDLVqftwPo4ai@cluster0.qg8rr.mongodb.net/To-Do-List?retryWrites=true&w=majority';
 mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true });
 const connection = mongoose.connection;
 connection.once('open', () => {
