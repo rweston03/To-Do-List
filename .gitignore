@@ -74,6 +74,8 @@ typings/
 .DS_Store
 ./to-do-list/server/.env
 server/.env
+/server/.env
+./server/.env
 to-do-list/server/.env
 .env.local
 .env.development.local
