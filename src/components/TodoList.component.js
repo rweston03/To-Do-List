@@ -26,7 +26,7 @@ export default class TodoList extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:5000/todos/')
+        axios.get('https://rw-todo-list.herokuapp.com/todos/')
             .then(response => {
                 this.setState({ todos: response.data })
                 this.setState({ alltodos: response.data })
@@ -63,7 +63,7 @@ export default class TodoList extends Component {
     }
 
     deleteTodo(id) {
-        axios.delete('http://localhost:5000/todos/'+id)
+        axios.delete('https://rw-todo-list.herokuapp.com/todos/'+id)
             .then(res => console.log(res.data));
         this.setState({
             todos: this.state.todos.filter(el => el._id !== id)
